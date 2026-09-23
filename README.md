@@ -61,3 +61,9 @@ A honeypot field, a minimum/maximum time-to-fill check, and
   language the customer used, so agent triage stays consistent.
 - Editing the card links or the target mailbox does not require a code
   change — see `Config/config.php`.
+
+## License
+
+AGPL-3.0, the same licence as FreeScout. See [LICENSE](LICENSE).
+
+The Masjid Media name and logo (`Public/img/`) are not covered by that licence and may not be used to brand other products or services.
