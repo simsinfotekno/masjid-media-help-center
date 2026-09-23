@@ -1,0 +1,25 @@
+{
+    "name": "freescout/masjidmediahelpcenter",
+    "description": "",
+    "authors": [
+        {
+            "name": "FreeScout",
+            "email": "support@freescout.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\MasjidMediaHelpCenter\\Providers\\MasjidMediaHelpCenterServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\MasjidMediaHelpCenter\\": ""
+        }
+    }
+}

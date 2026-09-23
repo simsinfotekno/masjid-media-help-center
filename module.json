@@ -1,0 +1,22 @@
+{
+    "name": "MasjidMediaHelpCenter",
+    "alias": "masjidmediahelpcenter",
+    "description": "Public help center landing page and contact form for Masjid Media.",
+    "version": "1.0.0",
+    "detailsUrl": "",
+    "author": "Masjid Media",
+    "authorUrl": "https://masjidmedia.id",
+    "requiredAppVersion": "1.8.241",
+    "license": "AGPL-3.0",
+    "keywords": [],
+    "active": 0,
+    "order": 0,
+    "providers": [
+        "Modules\\MasjidMediaHelpCenter\\Providers\\MasjidMediaHelpCenterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
