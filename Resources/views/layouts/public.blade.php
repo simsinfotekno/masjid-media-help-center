@@ -32,9 +32,22 @@
                 </nav>
             </div>
 
-            <a href="{{ url()->current() }}?lang={{ __('masjidmediahelpcenter::site.lang_switch_code') }}" class="site-lang">
-                {{ strtoupper(__('masjidmediahelpcenter::site.lang_switch_code')) }}
-            </a>
+            <details class="lang-menu">
+                <summary class="site-lang" aria-label="{{ __('masjidmediahelpcenter::site.lang_menu_label') }}">
+                    <span class="flag flag-{{ config('masjidmediahelpcenter.languages.'.app()->getLocale().'.flag') }}"></span>
+                    {{ strtoupper(app()->getLocale()) }}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+                </summary>
+                <div class="lang-menu-panel">
+                    @foreach (config('masjidmediahelpcenter.languages') as $code => $lang)
+                        <a href="{{ url()->current() }}?lang={{ $code }}"
+                            @if (app()->getLocale() === $code) aria-current="true" @endif>
+                            <span class="flag flag-{{ $lang['flag'] }}"></span>
+                            <span>{{ $lang['label'] }}</span>
+                        </a>
+                    @endforeach
+                </div>
+            </details>
         </div>
 
         <nav class="wrap site-nav-mobile">
@@ -82,5 +95,7 @@
             <p class="wrap">&copy; {{ date('Y') }} {{ __('masjidmediahelpcenter::site.footer.copyright') }}</p>
         </div>
     </footer>
+
+    <script src="{{ asset('modules/masjidmediahelpcenter/js/helpcenter.js') }}" defer></script>
 </body>
 </html>

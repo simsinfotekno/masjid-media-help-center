@@ -16,19 +16,19 @@ class SetPublicLocale
 {
     const SESSION_KEY = 'mm_helpcenter_locale';
     const DEFAULT_LOCALE = 'id';
-    const SUPPORTED = ['id', 'en'];
 
     public function handle(Request $request, Closure $next)
     {
+        $supported = array_keys(config('masjidmediahelpcenter.languages'));
         $requested = $request->query('lang');
 
-        if ($requested && in_array($requested, self::SUPPORTED, true)) {
+        if ($requested && in_array($requested, $supported, true)) {
             session([self::SESSION_KEY => $requested]);
         }
 
         $locale = session(self::SESSION_KEY, self::DEFAULT_LOCALE);
 
-        if (!in_array($locale, self::SUPPORTED, true)) {
+        if (!in_array($locale, $supported, true)) {
             $locale = self::DEFAULT_LOCALE;
         }
 

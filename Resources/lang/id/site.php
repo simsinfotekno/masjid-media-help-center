@@ -3,7 +3,7 @@
 return [
     'brand_name' => 'Masjid Media',
     'tagline' => 'Pusat Bantuan',
-    'lang_switch_code' => 'en',
+    'lang_menu_label' => 'Ganti bahasa',
 
     'nav_guides' => 'Panduan',
     'nav_contact' => 'Hubungi kami',

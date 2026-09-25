@@ -196,7 +196,19 @@ button, input, select, textarea { font: inherit; color: inherit; background: tra
 .site-nav a { transition: color 150ms ease; }
 .site-nav a:hover { color: var(--color-bone); }
 
+/* Language dropdown. Built on <details>/<summary> so open/close and keyboard
+   support work with no JS at all; helpcenter.js only layers on what <details>
+   lacks natively (close on outside click / Escape) as an enhancement. Each
+   option is a real link that reloads the page anyway, so there's nothing to
+   wire up for "close on select" — the disclosure just resets closed on the
+   next page load. */
+.lang-menu { position: relative; }
+
 .site-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
     font-size: 0.75rem;
     line-height: 1rem;
     letter-spacing: 2px;
@@ -206,6 +218,59 @@ button, input, select, textarea { font: inherit; color: inherit; background: tra
 }
 
 .site-lang:hover { color: var(--color-bone-soft); }
+
+.site-lang::-webkit-details-marker { display: none; }
+.site-lang::marker { content: ''; }
+
+.site-lang svg {
+    height: 0.75rem;
+    width: 0.75rem;
+    transition: transform 150ms ease;
+}
+
+.lang-menu[open] .site-lang svg { transform: rotate(180deg); }
+
+.lang-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    z-index: 10;
+    width: max-content;
+    max-width: calc(100vw - 2.5rem);
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-ink-line) 60%, transparent);
+    background-color: var(--color-ink-raised);
+    padding-block: 0.25rem;
+    box-shadow: 0 12px 24px color-mix(in srgb, var(--color-ink) 40%, transparent);
+}
+
+.lang-menu-panel a {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: var(--color-bone-soft);
+    white-space: nowrap;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.lang-menu-panel a:hover { background-color: color-mix(in srgb, var(--color-ink-line) 40%, transparent); color: var(--color-bone); }
+.lang-menu-panel a[aria-current="true"] { color: var(--color-brass); }
+
+.flag {
+    display: inline-block;
+    width: 1.2em;
+    aspect-ratio: 4 / 3;
+    border-radius: 2px;
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.flag-id { background-image: url('../img/flags/id.svg'); }
+.flag-gb { background-image: url('../img/flags/gb.svg'); }
 
 /* Mobile: the website hides its nav behind a JS toggle. The help center has
    no JS (FreeScout's CSP only allows nonce'd scripts), so the three links

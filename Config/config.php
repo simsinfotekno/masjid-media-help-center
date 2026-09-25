@@ -13,6 +13,16 @@ return [
     // while this is empty.
     'source_url' => env('HELPCENTER_SOURCE_URL'),
 
+    // Languages offered by the header's language dropdown, and the whitelist
+    // SetPublicLocale accepts. `flag` is the ISO 3166-1 alpha-2 code matching
+    // an SVG in Public/img/flags/ (mirrors masjid-media-website's
+    // config/languages.php). Adding a language: one more entry here, plus its
+    // flag SVG and a 'links' entry above.
+    'languages' => [
+        'id' => ['label' => 'Bahasa Indonesia', 'flag' => 'id'],
+        'en' => ['label' => 'English', 'flag' => 'gb'],
+    ],
+
     // Card / link targets, per locale.
     'links' => [
         'id' => [

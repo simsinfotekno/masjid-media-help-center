@@ -3,7 +3,7 @@
 return [
     'brand_name' => 'Masjid Media',
     'tagline' => 'Help Center',
-    'lang_switch_code' => 'id',
+    'lang_menu_label' => 'Change language',
 
     'nav_guides' => 'Guides',
     'nav_contact' => 'Contact us',
